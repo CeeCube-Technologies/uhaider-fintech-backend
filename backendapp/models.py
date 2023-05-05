@@ -20,7 +20,7 @@ class Application(models.Model):
     #     ('AP', 'Approved'),
     #     ('DN', 'Denied'),
     # ]
-
+#d
     application_id = models.AutoField(primary_key=True)
     date_submitted = models.DateTimeField(auto_now_add=True)
     # status = models.CharField(choices=STATUS_CHOICES, max_length=3)
