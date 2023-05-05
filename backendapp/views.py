@@ -1,5 +1,6 @@
 # myenv\Scripts\activate
 # source myenv/Scripts/activate
+# mongodb+srv://devcent:JPifHZQhFtShsa0Y@fintechapicluster0.t1cpxfd.mongodb.net/test
 
 
 # from django.shortcuts import render
