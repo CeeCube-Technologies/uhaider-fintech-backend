@@ -54,6 +54,14 @@ class ApplicationPDFsViewSet(viewsets.ModelViewSet):
     queryset = ApplicationPDFs.objects.all()
     serializer_class = ApplicationPDFsSerializer
 
+class ApplicationSerializer :
+    def create(self , validated_data):
+        pdf_files = validated_data.pop('pdf_files', None)
+        application = super().create(validated_data)
+        if pdf_file in pdf_files:
+            unique_info =  pdf_files.name
+            pdf = application.pdf_files.create(file=pdf_files,unique_info=unique_info)
+            
 
 # getData ---
 # queryset = Application.objects.all()

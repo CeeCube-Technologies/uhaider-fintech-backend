@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework.parsers import MultiPartParser
+from rest_framework.viewsets import ModelViewSet
 from .models import *
 
 
@@ -11,6 +13,7 @@ class ApplicationPDFsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ApplicationPDFs
         fields = '__all__'
+        
 
 class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,3 +37,9 @@ class ApplicationSerializer(serializers.ModelSerializer):
         for pdf_file_data in pdf_files_data:
             ApplicationPDFs.objects.create(application=instance, **pdf_file_data)
         return instance
+
+
+class ApplicationViewSet(ModelViewSet):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+    parser_classes = [MultiPartParser]
